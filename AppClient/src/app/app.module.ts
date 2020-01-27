@@ -6,6 +6,7 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TasksModule } from './tasks/tasks.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase), AngularFireAuthModule
+    AngularFireModule.initializeApp(environment.firebase), 
+    AngularFireAuthModule,
+    TasksModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

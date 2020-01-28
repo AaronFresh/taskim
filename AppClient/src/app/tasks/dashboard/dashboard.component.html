@@ -1,3 +1,5 @@
+<div style="display:flex;justify-content: space-around;">
+    <div>
 <h3>A Faire :</h3>
 <ul>  
     <app-basic-task [title]="tache1"
@@ -6,3 +8,26 @@
                     [description]="descriptionTache2"  ></app-basic-task>
     
 </ul>
+</div>
+
+<div>
+<h3>En Cours :</h3>
+<ul>  
+   
+    <app-basic-task [title]="tache2"
+                    [description]="descriptionTache2"  ></app-basic-task>
+    
+</ul>
+</div>
+
+<div>
+        <h3>Termine :</h3>
+        <ul>  
+            <app-basic-task [title]="tache1"
+                            [description]="descriptionTache1"  ></app-basic-task>
+           
+            
+        </ul>
+        </div>
+</div>
+

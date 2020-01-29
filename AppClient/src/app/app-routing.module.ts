@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BasicTaskComponent } from './tasks/basic-task/basic-task.component';
+import { DashboardComponent } from './tasks/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: 'task/:taskID', component: BasicTaskComponent }
- // { path: '',      component:  }
+  { path: 'task/:taskID', component: BasicTaskComponent },
+  { path: 'dashboard',component:DashboardComponent  }
 
 ];
 

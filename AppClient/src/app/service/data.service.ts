@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
+import { Task } from '../Models/Task';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  tasks:any[]=[];
-  task:any;
+  tasks:Task[]=[];
+  task:Task;
 
   constructor() {
     this.getTasks();

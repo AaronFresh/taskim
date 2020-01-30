@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { Task } from '../Models/Task';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +10,26 @@ export class DataService {
 
   tasks:Task[]=[];
   task:Task;
+  tasksSubject = new Subject<Task[]>();
+
+  emitTasks() {
+    this.tasksSubject.next(this.tasks);
+  }
 
   constructor() {
     this.getTasks();
    }
 
    saveTasks() {
-    firebase.database().ref('').set(this.tasks);
+    firebase.database().ref('https://tasks').set(this.tasks);
+    this.emitTasks();
 }
 
   getTasks() {
-    firebase.database().ref('')
+    firebase.database().ref('https://tasks')
       .on('value', (data) => {
           this.tasks = data.val() ? data.val() : [];
-          
+          this.emitTasks();
         }
       );
   }
@@ -30,7 +37,7 @@ export class DataService {
   getSingleTask(id: number) {
     return new Promise(
       (resolve, reject) => {
-        firebase.database().ref('' + id).once('value').then(
+        firebase.database().ref('https://tasks/' + id).once('value').then(
           (data) => {
             resolve(data.val());
           }, (error) => {
@@ -44,6 +51,7 @@ export class DataService {
   CreateNewTask(newTask:any){
       this.tasks.push(newTask);
       this.saveTasks();
+      this.emitTasks();
   }
 
 

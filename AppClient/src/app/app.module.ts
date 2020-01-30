@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TasksModule } from './tasks/tasks.module';
+import { DataService } from './service/data.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { TasksModule } from './tasks/tasks.module';
     TasksModule
    
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

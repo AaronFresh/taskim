@@ -22,12 +22,18 @@ export class AppComponent {
       appId: "1:653241814179:web:37a19c5dfe094b7b1c0316"
     };
     if (!firebase.apps.length) {
-      firebase.initializeApp({});
+      firebase.initializeApp(firebaseConfig);
    }
     
   }
   login() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(function(result){
+      console.log(result);
+      console.log("super")      
+    }).catch(function(err){
+      console.log(err);
+      console.log("nul")
+    });
   }
   logout() {
     this.afAuth.auth.signOut();

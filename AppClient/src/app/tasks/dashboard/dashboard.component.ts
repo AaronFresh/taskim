@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../../Models/Task';
+import { DataService } from '../../service/data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,9 +14,17 @@ descriptionTache1:string="faire une premiere tache ...."
 tache2:string =" task-2" ;
 descriptionTache2:string="faire une deuxieme tache ...."
 
-  constructor() { }
+task:Task;
+
+  constructor(private dataService:DataService) { }
 
   ngOnInit() {
+    this.task = new Task("","");
   }
+  
+newTask(){
+  this.task = new Task("Tache 1","bla bla")
+  this.dataService.CreateNewTask(this.task);
+}
 
 }

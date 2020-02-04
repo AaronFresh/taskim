@@ -6,14 +6,17 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: '<your-key>',
-    authDomain: '<your-project-authdomain>',
-    databaseURL: '<your-database-URL>',
-    projectId: '<your-project-id>',
-    storageBucket: '<your-storage-bucket>',
-    messagingSenderId: '<your-messaging-sender-id>'
+    apiKey: "AIzaSyAv_7Km39XNL6N_vcwt71hPFdhQeKEoVe0",
+    authDomain: "taskim-2c55c.firebaseapp.com",
+    databaseURL: "https://taskim-2c55c.firebaseio.com",
+    
+    projectId: "taskim-2c55c",
+    storageBucket: "taskim-2c55c.appspot.com",
+    messagingSenderId: "653241814179",
+    appId: "1:653241814179:web:37a19c5dfe094b7b1c0316"
   }
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

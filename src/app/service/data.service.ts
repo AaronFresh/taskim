@@ -21,12 +21,14 @@ export class DataService {
    }
 
    saveTasks() {
-    firebase.database().ref('https://tasks').set(this.tasks);
-    this.emitTasks();
+    let ref = firebase.database().ref('/tasks').set(this.tasks, ()=> {
+      this.getTasks();
+
+    });
 }
 
   getTasks() {
-    firebase.database().ref('https://tasks')
+    firebase.database().ref('/tasks')
       .on('value', (data) => {
           this.tasks = data.val() ? data.val() : [];
           this.emitTasks();
